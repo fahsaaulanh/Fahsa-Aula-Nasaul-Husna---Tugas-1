@@ -7,7 +7,7 @@ public class HumanController : MonoBehaviour
     
     public Collider2D lineDead;
 
-    public Vector2 speed;
+    public Vector3 speed;
     private Rigidbody2D rb;
 
     void Start()
@@ -16,7 +16,7 @@ public class HumanController : MonoBehaviour
 
     }
 
-
+   
     void Update()
     {
         if( ! GameSetting.instance.isGameOver)
@@ -27,7 +27,7 @@ public class HumanController : MonoBehaviour
 
     private void moveObject()
     {
-        rb.velocity = speed;
+        transform.position += speed * Time.deltaTime;
     }
 
     private void OnMouseDown()

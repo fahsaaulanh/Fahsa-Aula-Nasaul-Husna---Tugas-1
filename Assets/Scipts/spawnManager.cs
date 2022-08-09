@@ -8,6 +8,7 @@ public class spawnManager : MonoBehaviour
     public int spawnRangeX;
     public int spawnPosY;
 
+
     public GameObject [] prefabs;
     private List<GameObject> listObject;
    

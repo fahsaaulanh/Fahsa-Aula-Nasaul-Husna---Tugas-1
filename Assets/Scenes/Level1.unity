@@ -1605,7 +1605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5864738981791358552, guid: 8ef49ad382e41874ea2a3242f03f7540, type: 3}
       propertyPath: speed.y
-      value: -1
+      value: -1.8
       objectReference: {fileID: 0}
     - target: {fileID: -5864738981791358552, guid: 8ef49ad382e41874ea2a3242f03f7540, type: 3}
       propertyPath: lineDead
