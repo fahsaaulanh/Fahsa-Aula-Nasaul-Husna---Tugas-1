@@ -17,6 +17,7 @@ public class GameSetting : MonoBehaviour
         if(hpControll.hp == 0)
         {
             popUpGameOver.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 }

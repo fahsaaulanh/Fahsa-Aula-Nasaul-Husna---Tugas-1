@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     public SkorController skorControll;
     public HPController hpControll;
+    public spawnManager manager;
     public Collider2D lineDead;
 
     void Start()
@@ -22,7 +23,7 @@ public class EnemyController : MonoBehaviour
     private void OnMouseDown()
     {
         skorControll._skor += 50;
-        Destroy(gameObject);
+        manager.removeObject(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,7 +31,7 @@ public class EnemyController : MonoBehaviour
         if(collision == lineDead)
         {
             hpControll.hp -= 1;
-            Destroy(gameObject);
+            manager.removeObject(gameObject);
         }
     }
 

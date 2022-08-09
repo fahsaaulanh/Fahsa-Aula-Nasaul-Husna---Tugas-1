@@ -687,6 +687,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2798672529980510308, guid: 2bec3aca66cf3ca41b02ff96253d1a2b, type: 3}
+      propertyPath: m_GravityScale
+      value: 0.03
+      objectReference: {fileID: 0}
     - target: {fileID: 7460309776133392863, guid: 2bec3aca66cf3ca41b02ff96253d1a2b, type: 3}
       propertyPath: manager
       value: 
@@ -857,7 +861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc8f52ef3bac9f41b29e80b0d0e6297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeInterval: 2.5
+  timeInterval: 2
   spawnRangeX: 7
   spawnPosY: 6
   prefabs:
@@ -1649,6 +1653,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8849932164373037991, guid: 8ef49ad382e41874ea2a3242f03f7540, type: 3}
+      propertyPath: m_GravityScale
+      value: 0.03
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ef49ad382e41874ea2a3242f03f7540, type: 3}
 --- !u!1 &1840210318 stripped
@@ -1782,7 +1790,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e321c9dae81519f4aa059c25cd390fa8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6480ef5d1f7f1ea40bb7be00ac0c0017, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

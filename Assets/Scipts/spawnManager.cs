@@ -9,10 +9,13 @@ public class spawnManager : MonoBehaviour
     public int spawnPosY;
 
     public GameObject [] prefabs;
+    private List<GameObject> listObject;
+   
     private float timer;
 
     void Start()
     {
+        listObject = new List<GameObject>();
         timer = 0;
     }
 
@@ -26,10 +29,17 @@ public class spawnManager : MonoBehaviour
             Vector2 randomSpawnPos = new Vector2(Random.Range(-spawnRangeX, spawnRangeX), spawnPosY);
 
             int randomObject = Random.Range(0, prefabs.Length);
-            Instantiate(prefabs[randomObject], randomSpawnPos, prefabs[randomObject].transform.rotation);
-            prefabs[randomObject].SetActive(true);
+            GameObject prefabsObject =  Instantiate(prefabs[randomObject], randomSpawnPos, prefabs[randomObject].transform.rotation);
+            prefabsObject.SetActive(true);
+            listObject.Add(prefabsObject);
             timer = 0;
         }
+    }
+
+    public void removeObject(GameObject prefabsObject)
+    {
+        Destroy(prefabsObject);
+        listObject.Remove(prefabsObject);
     }
 
 
