@@ -102,7 +102,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.015
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -121,6 +121,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skorControll: {fileID: 0}
+  hpControll: {fileID: 0}
+  manager: {fileID: 0}
+  lineDead: {fileID: 0}
+  speed: {x: 0, y: 0}
 --- !u!60 &-8879383477034970850
 PolygonCollider2D:
   m_ObjectHideFlags: 0

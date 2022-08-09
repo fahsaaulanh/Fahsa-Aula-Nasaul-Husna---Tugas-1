@@ -6,8 +6,7 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public SkorController skorControll;
-    public HPController hpControll;
+    
     public int skor ;
     public int hp;
     
@@ -21,10 +20,10 @@ public class UIManager : MonoBehaviour
    
     void Update()
     {
-        skor = skorControll._skor;
+        skor = SkorController.instance._skor;
         skorText.text = skor.ToString();
 
-        hp = hpControll.hp;
+        hp = HPController.instance.hp;
         hpText.text = hp.ToString();
     }
 }

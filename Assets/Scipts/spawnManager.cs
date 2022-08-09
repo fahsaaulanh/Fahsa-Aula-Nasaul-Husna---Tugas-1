@@ -13,6 +13,19 @@ public class spawnManager : MonoBehaviour
    
     private float timer;
 
+    public static spawnManager instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
     void Start()
     {
         listObject = new List<GameObject>();
@@ -24,16 +37,25 @@ public class spawnManager : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (timer >= timeInterval)
+        if(GameSetting.instance.isGameOver == false)
         {
-            Vector2 randomSpawnPos = new Vector2(Random.Range(-spawnRangeX, spawnRangeX), spawnPosY);
-
-            int randomObject = Random.Range(0, prefabs.Length);
-            GameObject prefabsObject =  Instantiate(prefabs[randomObject], randomSpawnPos, prefabs[randomObject].transform.rotation);
-            prefabsObject.SetActive(true);
-            listObject.Add(prefabsObject);
-            timer = 0;
+            if (timer >= timeInterval)
+            {
+                spawnObject();
+                timer = 0;
+            }
         }
+     
+    }
+
+    private void spawnObject()
+    {
+        Vector2 randomSpawnPos = new Vector2(Random.Range(-spawnRangeX, spawnRangeX), spawnPosY);
+
+        int randomObject = Random.Range(0, prefabs.Length);
+        GameObject prefabsObject = Instantiate(prefabs[randomObject], randomSpawnPos, prefabs[randomObject].transform.rotation);
+        prefabsObject.SetActive(true);
+        listObject.Add(prefabsObject);
     }
 
     public void removeObject(GameObject prefabsObject)

@@ -687,10 +687,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2798672529980510308, guid: 2bec3aca66cf3ca41b02ff96253d1a2b, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7460309776133392863, guid: 2bec3aca66cf3ca41b02ff96253d1a2b, type: 3}
       propertyPath: manager
       value: 
       objectReference: {fileID: 467177051}
+    - target: {fileID: 7460309776133392863, guid: 2bec3aca66cf3ca41b02ff96253d1a2b, type: 3}
+      propertyPath: speed.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460309776133392863, guid: 2bec3aca66cf3ca41b02ff96253d1a2b, type: 3}
+      propertyPath: speed.y
+      value: -1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7460309776133392863, guid: 2bec3aca66cf3ca41b02ff96253d1a2b, type: 3}
       propertyPath: lineDead
       value: 
@@ -698,11 +710,15 @@ PrefabInstance:
     - target: {fileID: 7460309776133392863, guid: 2bec3aca66cf3ca41b02ff96253d1a2b, type: 3}
       propertyPath: hpControll
       value: 
-      objectReference: {fileID: 156570931}
+      objectReference: {fileID: 0}
+    - target: {fileID: 7460309776133392863, guid: 2bec3aca66cf3ca41b02ff96253d1a2b, type: 3}
+      propertyPath: _gameSetting
+      value: 
+      objectReference: {fileID: 467177053}
     - target: {fileID: 7460309776133392863, guid: 2bec3aca66cf3ca41b02ff96253d1a2b, type: 3}
       propertyPath: skorControll
       value: 
-      objectReference: {fileID: 604342446}
+      objectReference: {fileID: 0}
     - target: {fileID: 8069689112590182644, guid: 2bec3aca66cf3ca41b02ff96253d1a2b, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -875,8 +891,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e702d8cdf2b40c4bb525ba941e452ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skorControll: {fileID: 604342446}
-  hpControll: {fileID: 156570931}
   skor: 0
   hp: 3
   skorText: {fileID: 178438534}
@@ -893,8 +907,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d594fbaa2dc607418a33acc90ff2f6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpControll: {fileID: 156570931}
   popUpGameOver: {fileID: 23339757}
+  isGameOver: 0
 --- !u!114 &467177054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1579,12 +1593,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8879383477034970850, guid: 8ef49ad382e41874ea2a3242f03f7540, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -5864738981791358552, guid: 8ef49ad382e41874ea2a3242f03f7540, type: 3}
       propertyPath: manager
       value: 
       objectReference: {fileID: 467177051}
+    - target: {fileID: -5864738981791358552, guid: 8ef49ad382e41874ea2a3242f03f7540, type: 3}
+      propertyPath: speed.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -5864738981791358552, guid: 8ef49ad382e41874ea2a3242f03f7540, type: 3}
+      propertyPath: speed.y
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: -5864738981791358552, guid: 8ef49ad382e41874ea2a3242f03f7540, type: 3}
       propertyPath: lineDead
       value: 
@@ -1592,11 +1614,11 @@ PrefabInstance:
     - target: {fileID: -5864738981791358552, guid: 8ef49ad382e41874ea2a3242f03f7540, type: 3}
       propertyPath: hpControll
       value: 
-      objectReference: {fileID: 156570931}
+      objectReference: {fileID: 0}
     - target: {fileID: -5864738981791358552, guid: 8ef49ad382e41874ea2a3242f03f7540, type: 3}
       propertyPath: skorControll
       value: 
-      objectReference: {fileID: 604342446}
+      objectReference: {fileID: 0}
     - target: {fileID: 4423699122251668576, guid: 8ef49ad382e41874ea2a3242f03f7540, type: 3}
       propertyPath: m_Name
       value: enemy
@@ -1647,6 +1669,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4423699122251668578, guid: 8ef49ad382e41874ea2a3242f03f7540, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849932164373037991, guid: 8ef49ad382e41874ea2a3242f03f7540, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849932164373037991, guid: 8ef49ad382e41874ea2a3242f03f7540, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8849932164373037991, guid: 8ef49ad382e41874ea2a3242f03f7540, type: 3}
+      propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -5,19 +5,36 @@ using UnityEngine;
 public class GameSetting : MonoBehaviour
 {
     
-    public HPController hpControll;
+   
     public GameObject popUpGameOver;
-    void Start()
+
+    [HideInInspector] public bool isGameOver = false;
+
+    public static GameSetting instance;
+
+    private void Awake()
     {
-        
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
     }
 
     void Update()
     {
-        if(hpControll.hp == 0)
+       if(isGameOver)
         {
-            popUpGameOver.SetActive(true);
-            Time.timeScale = 0;
+            GameOver();
         }
+    }
+
+    public void GameOver()
+    {
+       
+        popUpGameOver.SetActive(true);
     }
 }
