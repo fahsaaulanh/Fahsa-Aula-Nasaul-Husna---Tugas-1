@@ -47,13 +47,13 @@ public class GameSetting : MonoBehaviour
 
     private IEnumerator activateDelayText()
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.2f);
         delayText.SetActive(true);
     }
 
     private IEnumerator deactivateDelayText()
     {
-        yield return new WaitForSeconds(spawnManager.instance.timeDelayWave);
+        yield return new WaitForSeconds(spawnManager.instance.timeDelayWave - 2f);
         delayText.SetActive(false);
     }
 }

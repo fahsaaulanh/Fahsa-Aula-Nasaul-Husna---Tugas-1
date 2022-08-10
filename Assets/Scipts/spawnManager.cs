@@ -82,7 +82,7 @@ public class spawnManager : MonoBehaviour
         if(objectCount >= objectPerWave)
         {
             delayWave = true;
-            timeDelayText += Time.deltaTime;
+            timeDelayText -= Time.deltaTime;
             StartCoroutine(deactivateDelayWave());
         }
     }
@@ -91,7 +91,7 @@ public class spawnManager : MonoBehaviour
     {
         yield return new WaitForSeconds(timeDelayWave);
         objectCount = 0;
-        timeDelayText -= Time.deltaTime;
+        timeDelayText = 5;
         delayWave = false;
         HumanController.instance.SpeedUp(speedUp);
         EnemyController.instance.SpeedUp(speedUp);

@@ -884,9 +884,9 @@ MonoBehaviour:
   objectPerWave: 15
   wave: 0
   delayWave: 0
-  speedUp: {x: 0, y: -0.01}
+  speedUp: {x: 0, y: -0.005}
   timeDelayWave: 5
-  timeDelayText: 0
+  timeDelayText: 5
 --- !u!114 &467177052
 MonoBehaviour:
   m_ObjectHideFlags: 0
