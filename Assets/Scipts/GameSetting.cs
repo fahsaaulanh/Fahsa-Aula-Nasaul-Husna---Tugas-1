@@ -7,6 +7,7 @@ public class GameSetting : MonoBehaviour
     
    
     public GameObject popUpGameOver;
+    public GameObject delayText;
 
     [HideInInspector] public bool isGameOver = false;
 
@@ -26,6 +27,12 @@ public class GameSetting : MonoBehaviour
 
     void Update()
     {
+        if(spawnManager.instance.delayWave)
+        {
+            StartCoroutine(activateDelayText());
+            StartCoroutine(deactivateDelayText());
+        }
+
        if(isGameOver)
         {
             GameOver();
@@ -36,5 +43,17 @@ public class GameSetting : MonoBehaviour
     {
        
         popUpGameOver.SetActive(true);
+    }
+
+    private IEnumerator activateDelayText()
+    {
+        yield return new WaitForSeconds(0.7f);
+        delayText.SetActive(true);
+    }
+
+    private IEnumerator deactivateDelayText()
+    {
+        yield return new WaitForSeconds(spawnManager.instance.timeDelayWave);
+        delayText.SetActive(false);
     }
 }

@@ -10,6 +10,18 @@ public class EnemyController : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    public static EnemyController instance;
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,6 +42,10 @@ public class EnemyController : MonoBehaviour
         transform.position += speed * Time.deltaTime;
     }
 
+    public void SpeedUp(Vector2 magnitude)
+    {
+        speed.y += magnitude.y;
+    }
 
     private void OnMouseDown()
     {

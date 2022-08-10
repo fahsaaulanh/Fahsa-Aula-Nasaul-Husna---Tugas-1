@@ -14,8 +14,15 @@ public class spawnManager : MonoBehaviour
    
     private float timer;
 
-    public static spawnManager instance;
+    public int objectCount;
+    [SerializeField] private int objectPerWave;
+    [SerializeField] private int wave;
+    public bool delayWave;
+    [SerializeField] Vector2 speedUp;
+    public float timeDelayWave;
+    public float timeDelayText;
 
+    public static spawnManager instance;
     private void Awake()
     {
         if (instance != null)
@@ -29,6 +36,7 @@ public class spawnManager : MonoBehaviour
     }
     void Start()
     {
+        delayWave = false;
         listObject = new List<GameObject>();
         timer = 0;
     }
@@ -38,14 +46,17 @@ public class spawnManager : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if(GameSetting.instance.isGameOver == false)
+        if (GameSetting.instance.isGameOver == false && !delayWave)
         {
             if (timer >= timeInterval)
             {
                 spawnObject();
+                objectCount += 1;
                 timer = 0;
             }
         }
+
+        activateWave();
      
     }
 
@@ -57,12 +68,33 @@ public class spawnManager : MonoBehaviour
         GameObject prefabsObject = Instantiate(prefabs[randomObject], randomSpawnPos, prefabs[randomObject].transform.rotation);
         prefabsObject.SetActive(true);
         listObject.Add(prefabsObject);
+        
     }
 
     public void removeObject(GameObject prefabsObject)
     {
         Destroy(prefabsObject);
         listObject.Remove(prefabsObject);
+    }
+
+    private void activateWave()
+    {
+        if(objectCount >= objectPerWave)
+        {
+            delayWave = true;
+            timeDelayText += Time.deltaTime;
+            StartCoroutine(deactivateDelayWave());
+        }
+    }
+
+    private IEnumerator deactivateDelayWave()
+    {
+        yield return new WaitForSeconds(timeDelayWave);
+        objectCount = 0;
+        timeDelayText -= Time.deltaTime;
+        delayWave = false;
+        HumanController.instance.SpeedUp(speedUp);
+        EnemyController.instance.SpeedUp(speedUp);
     }
 
 

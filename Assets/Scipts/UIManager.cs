@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     
     public TMP_Text skorText;
     public TMP_Text hpText;
+    public TMP_Text delayText;
     void Start()
     {
         
@@ -25,5 +26,8 @@ public class UIManager : MonoBehaviour
 
         hp = HPController.instance.hp;
         hpText.text = hp.ToString();
+
+        int delay = Mathf.CeilToInt(spawnManager.instance.timeDelayText);
+        delayText.text = delay.ToString();
     }
 }

@@ -10,6 +10,18 @@ public class HumanController : MonoBehaviour
     public Vector3 speed;
     private Rigidbody2D rb;
 
+    public static HumanController instance;
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -28,6 +40,11 @@ public class HumanController : MonoBehaviour
     private void moveObject()
     {
         transform.position += speed * Time.deltaTime;
+    }
+
+    public void SpeedUp(Vector2 magnitude)
+    {
+        speed.y += magnitude.y;
     }
 
     private void OnMouseDown()
