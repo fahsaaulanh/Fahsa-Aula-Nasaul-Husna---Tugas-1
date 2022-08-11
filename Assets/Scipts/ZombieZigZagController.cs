@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HumanController : CharacterBehavior, IRaycastable
+public class ZombieZigZagController : CharacterBehavior, IRaycastable
 {
-
-    public static HumanController instance;
+    [SerializeField] private float t;
+    public static ZombieZigZagController instance;
     private void Awake()
     {
         if (instance != null)
@@ -20,7 +20,6 @@ public class HumanController : CharacterBehavior, IRaycastable
     void Start()
     {
 
-
     }
 
 
@@ -34,8 +33,11 @@ public class HumanController : CharacterBehavior, IRaycastable
 
     public override void moveObject()
     {
+        speed.x = 5 * Mathf.Cos(t);
         transform.position += speed * Time.deltaTime;
-        
+
+
+        t += Time.deltaTime;
     }
 
     public override void SpeedUp(Vector2 magnitude)
@@ -43,24 +45,25 @@ public class HumanController : CharacterBehavior, IRaycastable
         speed.y += magnitude.y;
     }
 
+
     private void OnMouseDown()
     {
         OnTapObject();
     }
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision == lineDead)
         {
-            SkorController.instance._skor += 50;
+            HPController.instance.hp -= 1;
             spawnManager.instance.removeObject(gameObject);
         }
     }
 
     public void OnTapObject()
     {
-        GameSetting.instance.isGameOver = true;
+        SkorController.instance._skor += 50;
         spawnManager.instance.removeObject(gameObject);
     }
-
 }

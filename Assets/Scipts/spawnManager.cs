@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class spawnManager : MonoBehaviour
 {
-    public float timeInterval;
-    public int spawnRangeX;
-    public int spawnPosY;
+    [SerializeField]private float timeInterval;
+    [SerializeField] private int spawnRangeX;
+    [SerializeField] private int spawnPosY;
 
 
     public GameObject [] prefabs;
@@ -14,7 +14,7 @@ public class spawnManager : MonoBehaviour
    
     private float timer;
 
-    public int objectCount;
+    [SerializeField] private int objectCount;
     [SerializeField] private int objectPerWave;
     [SerializeField] private int wave;
     public bool delayWave;
@@ -93,8 +93,8 @@ public class spawnManager : MonoBehaviour
         objectCount = 0;
         timeDelayText = 5;
         delayWave = false;
-        HumanController.instance.SpeedUp(speedUp);
-        EnemyController.instance.SpeedUp(speedUp);
+        //HumanController.instance.SpeedUp(speedUp);
+        //EnemyController.instance.SpeedUp(speedUp);
     }
 
 

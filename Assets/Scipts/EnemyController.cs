@@ -2,14 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : CharacterBehavior, IRaycastable
 {
-    public Collider2D lineDead;
-
-    public Vector3 speed;
-
-    private Rigidbody2D rb;
-
+   
     public static EnemyController instance;
     private void Awake()
     {
@@ -24,34 +19,34 @@ public class EnemyController : MonoBehaviour
     }
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         
     }
 
    
     void Update()
     {
-        if (!GameSetting.instance.isGameOver)
+        if (!GameSetting.instance.isGameOver && !spawnManager.instance.delayWave)
         {
             moveObject();
         }
     }
 
-    private void moveObject()
+    public override void moveObject()
     {
         transform.position += speed * Time.deltaTime;
     }
 
-    public void SpeedUp(Vector2 magnitude)
+    public override void SpeedUp(Vector2 magnitude)
     {
         speed.y += magnitude.y;
     }
 
+
     private void OnMouseDown()
     {
-        SkorController.instance._skor += 50;
-        spawnManager.instance.removeObject(gameObject);
+        OnTapObject();
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -60,6 +55,12 @@ public class EnemyController : MonoBehaviour
             HPController.instance.hp -= 1;
             spawnManager.instance.removeObject(gameObject);
         }
+    }
+
+    public void OnTapObject()
+    {
+        SkorController.instance._skor += 50;
+        spawnManager.instance.removeObject(gameObject);
     }
 
 }

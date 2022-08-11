@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GameSetting : MonoBehaviour
 {
-    
-   
-    public GameObject popUpGameOver;
-    public GameObject delayText;
+
+
+    [SerializeField] private GameObject popUpGameOver;
+    [SerializeField] private GameObject delayText;
 
     [HideInInspector] public bool isGameOver = false;
 
@@ -30,7 +30,7 @@ public class GameSetting : MonoBehaviour
         if(spawnManager.instance.delayWave)
         {
             StartCoroutine(activateDelayText());
-            StartCoroutine(deactivateDelayText());
+          
         }
 
        if(isGameOver)
@@ -47,13 +47,14 @@ public class GameSetting : MonoBehaviour
 
     private IEnumerator activateDelayText()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.001f);
         delayText.SetActive(true);
+        StartCoroutine(deactivateDelayText());
     }
 
     private IEnumerator deactivateDelayText()
     {
-        yield return new WaitForSeconds(spawnManager.instance.timeDelayWave - 2f);
+        yield return new WaitForSeconds(spawnManager.instance.timeDelayWave);
         delayText.SetActive(false);
     }
 }
