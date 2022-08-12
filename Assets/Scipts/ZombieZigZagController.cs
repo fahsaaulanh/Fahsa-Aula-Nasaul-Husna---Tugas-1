@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class ZombieZigZagController : CharacterBehavior, IRaycastable
 {
+    
+    [SerializeField] private float frequency;
     [SerializeField] private float t;
+    [SerializeField] private float amplitudo;
     public static ZombieZigZagController instance;
     private void Awake()
     {

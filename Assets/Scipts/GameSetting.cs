@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GameSetting : MonoBehaviour
 {
-
+    public delegate void GameDelegate();
+    public static event GameDelegate OnGameOver;
 
     [SerializeField] private GameObject popUpGameOver;
     [SerializeField] private GameObject delayText;
@@ -25,13 +26,18 @@ public class GameSetting : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        spawnManager.OnActiveWave += activateDelayText;
+    }
+
+    private void OnDisable()
+    {
+        spawnManager.OnActiveWave -= activateDelayText;
+    }
+
     void Update()
     {
-        if(spawnManager.instance.delayWave)
-        {
-            StartCoroutine(activateDelayText());
-          
-        }
 
        if(isGameOver)
         {
@@ -41,13 +47,12 @@ public class GameSetting : MonoBehaviour
 
     public void GameOver()
     {
-       
+        OnGameOver();
         popUpGameOver.SetActive(true);
     }
 
-    private IEnumerator activateDelayText()
+    private void activateDelayText()
     {
-        yield return new WaitForSeconds(0.001f);
         delayText.SetActive(true);
         StartCoroutine(deactivateDelayText());
     }

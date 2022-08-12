@@ -17,13 +17,6 @@ public class HumanController : CharacterBehavior, IRaycastable
             instance = this;
         }
     }
-    void Start()
-    {
-
-
-    }
-
-
     void Update()
     {
         if (!GameSetting.instance.isGameOver && !spawnManager.instance.delayWave)
@@ -31,6 +24,8 @@ public class HumanController : CharacterBehavior, IRaycastable
             moveObject();
         }
     }
+
+
 
     public override void moveObject()
     {

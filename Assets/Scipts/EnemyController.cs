@@ -17,12 +17,6 @@ public class EnemyController : CharacterBehavior, IRaycastable
             instance = this;
         }
     }
-    void Start()
-    {
-        
-    }
-
-   
     void Update()
     {
         if (!GameSetting.instance.isGameOver && !spawnManager.instance.delayWave)
@@ -30,6 +24,8 @@ public class EnemyController : CharacterBehavior, IRaycastable
             moveObject();
         }
     }
+
+
 
     public override void moveObject()
     {

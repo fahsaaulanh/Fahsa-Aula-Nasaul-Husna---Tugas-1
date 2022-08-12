@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class spawnManager : MonoBehaviour
 {
+    public delegate void GameDelegate();
+    public static event GameDelegate OnActiveWave;
     [SerializeField]private float timeInterval;
     [SerializeField] private int spawnRangeX;
     [SerializeField] private int spawnPosY;
@@ -82,6 +84,7 @@ public class spawnManager : MonoBehaviour
         if(objectCount >= objectPerWave)
         {
             delayWave = true;
+            OnActiveWave();
             timeDelayText -= Time.deltaTime;
             StartCoroutine(deactivateDelayWave());
         }

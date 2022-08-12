@@ -1984,6 +1984,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5163103161719627352, guid: a43df8e833f28ea49b289b9f94a26f0f, type: 3}
+      propertyPath: speed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163103161719627352, guid: a43df8e833f28ea49b289b9f94a26f0f, type: 3}
       propertyPath: speed.y
       value: -3
       objectReference: {fileID: 0}
@@ -1991,6 +1995,14 @@ PrefabInstance:
       propertyPath: lineDead
       value: 
       objectReference: {fileID: 2072803779}
+    - target: {fileID: 5163103161719627352, guid: a43df8e833f28ea49b289b9f94a26f0f, type: 3}
+      propertyPath: amplitudo
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5163103161719627352, guid: a43df8e833f28ea49b289b9f94a26f0f, type: 3}
+      propertyPath: frequency
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a43df8e833f28ea49b289b9f94a26f0f, type: 3}
 --- !u!1 &1974430377 stripped
